@@ -15,28 +15,24 @@ class DummyClass extends Notification
 
     protected $otp;
 
+    protected $lifeTime;
+
     const OPT_LIFETIME = 1;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct($otp, $channels = null)
-    {
-        $this->otp = $otp;
-        $this->defaultChannels = $this->verifyChannels($channels);
-    }
+    const OPT_LENGTH = 6;
 
-    public function verifyChannels($channels)
+    /**
+     * Construct
+     *
+     * @param array|string $channels
+     * @param integer|string $otpLength
+     * @param integer|string $lifeTime
+     */
+    public function __construct($channels = null, $otpLength = null, $lifeTime = null)
     {
-        if ($channels && is_array($channels)) {
-            return array_merge($this->defaultChannels, $channels);
-        }
-        if ($channels && is_string($channels)) {
-            array_push($this->defaultChannels, $channels);
-        }
-        return $this->defaultChannels;
+        $this->otp = $this->generateOtp($otpLength ?? self::OPT_LENGTH);
+        $this->lifeTime = $lifeTime ?? self::OPT_LENGTH;
+        $this->defaultChannels = $this->verifyChannels($channels);
     }
 
     /**
@@ -73,7 +69,43 @@ class DummyClass extends Notification
     {
         return [
             'otp' => $this->otp,
-            'expired_at' => now()->addMinutes(self::OPT_LIFETIME)->toDateTimeString(),
+            'expired_at' => now()->addMinutes($this->lifeTime)->toDateTimeString(),
         ];
+    }
+
+    /**
+     * Generate OTP
+     *
+     * @param integer|string $n
+     *
+     * @return string
+     */
+    public function generateOtp($n)
+    {
+        $generator = "0987654321";
+        $result = "";
+
+        for ($i = 1; $i <= $n; $i++) {
+            $result .= substr($generator, (rand()%(strlen($generator))), 1);
+        }
+        return $result;
+    }
+
+    /**
+     * Verify channels
+     *
+     * @param string|array $channels
+     *
+     * @return array
+     */
+    public function verifyChannels($channels)
+    {
+        if ($channels && is_array($channels)) {
+            return array_merge($this->defaultChannels, $channels);
+        }
+        if ($channels && is_string($channels)) {
+            array_push($this->defaultChannels, $channels);
+        }
+        return $this->defaultChannels;
     }
 }
