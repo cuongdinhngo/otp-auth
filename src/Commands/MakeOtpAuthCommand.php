@@ -47,7 +47,6 @@ class MakeOtpAuthCommand extends GeneratorCommand
      */
     public function handle()
     {
-        $this->info(__METHOD__);
         $name = $this->qualifyClass($this->getNameInput());
         $path = $this->getPath($name);
         $this->makeDirectory($path);
@@ -60,6 +59,11 @@ class MakeOtpAuthCommand extends GeneratorCommand
         $this->info($this->type.' created successfully.');
     }
 
+    /**
+     * Migrate Notification table
+     *
+     * @return void
+     */
     public function migrateNotificationTable()
     {
         if (empty(glob(base_path().'/database/migrations/*_create_notifications_table.php'))) {
@@ -67,12 +71,28 @@ class MakeOtpAuthCommand extends GeneratorCommand
         }
     }
 
+    /**
+     * Generate Otp Auth Trait
+     *
+     * @param  string $path
+     * @param  string $nameInput
+     *
+     * @return void
+     */
     public function generateOtpAuthTrait($path, $nameInput)
     {
         list($path, $name, $otpAuthClass) = $this->qualifyTrait($path, $nameInput);
         $this->files->put($path, $this->sortImports($this->buildTrait($name, $otpAuthClass)));
     }
 
+    /**
+     * To qualify Trait
+     *
+     * @param  string $path
+     * @param  string $nameInput
+     *
+     * @return array
+     */
     public function qualifyTrait($path, $nameInput)
     {
         $otpAuthClass = array_pop($nameInput);
@@ -81,6 +101,14 @@ class MakeOtpAuthCommand extends GeneratorCommand
         return [$path, $name, $otpAuthClass];
     }
 
+    /**
+     * Build Trait
+     *
+     * @param  string $name
+     * @param  string $otpAuthClass
+     *
+     * @return string
+     */
     protected function buildTrait($name, $otpAuthClass)
     {
         $stub = $this->files->get($this->getTraitStub());
@@ -88,6 +116,15 @@ class MakeOtpAuthCommand extends GeneratorCommand
         return $this->replaceNamespaceTrait($stub, $name, $otpAuthClass);
     }
 
+    /**
+     * Replace Namespace Trait
+     *
+     * @param  string $stub
+     * @param  string $name
+     * @param  string $otpAuthClass
+     *
+     * @return string
+     */
     protected function replaceNamespaceTrait(&$stub, $name, $otpAuthClass)
     {
         return str_replace(
@@ -97,6 +134,11 @@ class MakeOtpAuthCommand extends GeneratorCommand
         );
     }
 
+    /**
+     * Get Trait Stub
+     *
+     * @return string
+     */
     protected function getTraitStub()
     {
         return __DIR__.'/../stubs/has-otp-auth-trait.stub';

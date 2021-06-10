@@ -31,7 +31,7 @@ class DummyClass extends Notification
     public function __construct($channels = null, $otpLength = null, $lifeTime = null)
     {
         $this->otp = $this->generateOtp($otpLength ?? self::OPT_LENGTH);
-        $this->lifeTime = $lifeTime ?? self::OPT_LENGTH;
+        $this->lifeTime = $lifeTime ?? self::OPT_LIFETIME;
         $this->defaultChannels = $this->verifyChannels($channels);
     }
 

@@ -70,7 +70,7 @@ trait HasOtpAuth
         }
 
         $authenticator = $authenticator->notifications()
-                    ->where('type', 'LIKE', '%SendOtpAuth%')
+                    ->where('type', 'LIKE', '%DummyOtpAuthClass%')
                     ->whereNull('read_at')
                     ->first();
 
