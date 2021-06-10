@@ -1,0 +1,44 @@
+{
+    "name": "cuongnd88/otp-auth",
+    "description": "OTP Authentication (One Time Passwords)",
+    "homepage": "https://github.com/cuongnd88/otp-auth",
+    "keywords": ["laravel", "otp", "one time passwords", "authentication"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ngo Dinh Cuong",
+            "email": "dinhcuongngo@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5",
+        "illuminate/database": "^7.0|^8.0",
+        "illuminate/http": "^7.0|^8.0",
+        "illuminate/notifications": "^7.0|^8.0",
+        "illuminate/routing": "^7.0|^8.0",
+        "illuminate/support": "^7.0|^8.0",
+        "nesbot/carbon": "^2.35"
+    },
+    "require-dev": {
+        "illuminate/config": "^7.0|^8.0",
+        "mockery/mockery": "~1.3.1",
+        "phpunit/phpunit": "7.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cuongnd88\\OtpAuth\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cuongnd88\\OtpAuth\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
