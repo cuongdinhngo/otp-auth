@@ -16,7 +16,7 @@
         "illuminate/http": "^6.0|^7.0",
         "illuminate/notifications": "^6.0|^7.0",
         "illuminate/routing": "^6.0|^7.0",
-        "illuminate/support": "^6.0|^7.0",
+        "illuminate/support": "^6.0|^7.0"
     },
     "require-dev": {
         "illuminate/config": "^6.0|^7.0",
