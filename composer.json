@@ -33,5 +33,5 @@
         "psr-4": {
             "Cuongnd88\\OtpAuth\\Test\\": "tests"
         }
-    },
+    }
 }
