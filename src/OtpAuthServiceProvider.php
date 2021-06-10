@@ -23,8 +23,7 @@ class OtpAuthServiceProvider extends ServiceProvider
     public function boot()
     {
          $this->commands([
-            \Cuongnd88\OtpAuth\MakeOtpAth::class,
-            \Cuongnd88\OtpAuth\Commands\MakeOtpAth::class,
+            \Cuongnd88\OtpAuth\Commands\MakeOtpAuthCommand::class,
         ]);
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Traits;
+namespace DummyNamespace;
 
-trait OtpAuth
+trait HasOtpAuth
 {
     /**
      * Check OTP
@@ -36,7 +36,7 @@ trait OtpAuth
     public function otp()
     {
         return $this->notifications()
-                ->where('type', 'LIKE', '%SendOtp%')
+                ->where('type', 'LIKE', '%DummyOtpAuthClass%')
                 ->whereNull('read_at')
                 ->first();
     }
