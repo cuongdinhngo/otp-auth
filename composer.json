@@ -25,12 +25,19 @@
     },
     "autoload": {
         "psr-4": {
-            "Cuongnd88\\OtpAuth\\": "src"
+            "Cuongnd88\\OtpAuth\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Cuongnd88\\OtpAuth\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cuongnd88\\OtpAuth\\OtpAuthServiceProvider"
+            ]
         }
     }
 }
