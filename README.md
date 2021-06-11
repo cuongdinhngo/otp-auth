@@ -358,4 +358,4 @@ Route::get("/check-otp/{otp}", function(){
 
 - Ngo Dinh Cuong
 
-[![Linkedin](https://www.linkedin.com/in/ngodinhcuong/)
+[LinkedIn](https://www.linkedin.com/in/ngodinhcuong/)
