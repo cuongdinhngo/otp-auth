@@ -25,7 +25,7 @@ Route::get("/check-otp/{otp}", function(){
 	- [Generate OTP](#generate-otp)
 	- [Verify OTP](#verify-otp)
 	- [Basic identification](#basic-identification)
-- [Testing](#testing)
+- [Credits](#credits)
 
 
 ## Installation
@@ -358,4 +358,4 @@ Route::get("/check-otp/{otp}", function(){
 
 - Ngo Dinh Cuong
 
-[![Linkedin](https://www.linkedin.com/in/ngodinhcuong/)
+[LinkedIn](https://www.linkedin.com/in/ngodinhcuong/)
