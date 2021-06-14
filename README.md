@@ -25,6 +25,7 @@ Route::get("/check-otp/{otp}", function(){
 	- [Generate OTP](#generate-otp)
 	- [Verify OTP](#verify-otp)
 	- [Basic identification](#basic-identification)
+    - [Demo](#demo)
 - [Credits](#credits)
 
 
@@ -353,6 +354,11 @@ Route::get("/check-otp/{otp}", function(){
     return auth()->user->checkOtp(request()->otp);
 });
 ```
+
+### Demo
+
+This is demo soure code.
+[Laravel Colab](https://github.com/cuongnd88/lara-colab/blob/master/alpha/routes/web.php)
 
 ## Credits
 
