@@ -101,8 +101,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Twilio\Rest\Client as TwilioClient;
-use App\Channels\TwilioChannel;
+use Cuongnd88\DeliveryChannel\Messages\TwilioMessage;
 
 class SendOtp extends Notification
 {
@@ -179,18 +178,10 @@ class SendOtp extends Notification
      */
     public function toTwilio($notifiable)
     {
-        $account_sid = env('TWILIO_ACCOUNT_ID');
-        $auth_token = env('TWILIO_AUTH_TOKEN');
-        $twilio_number = env('TWILIO_FROM_NUMBER');
-
-        $client = new TwilioClient($account_sid, $auth_token);
-        $client->messages->create(
-            $notifiable->phone_number,
-            array(
-                'from' => $twilio_number,
-                'body' => 'OTP AUTH is '.$this->otp
-            )
-        );
+        return (new TwilioMessage)
+                    ->to("+8439xxxxxxx")
+                    ->from("+xxxxxxxxxx")
+                    ->body('OTP AUTH is '.$this->otp);
     }
 
     /**
