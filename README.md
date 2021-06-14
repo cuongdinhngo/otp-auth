@@ -55,7 +55,7 @@ _`CreateNotificationsTable` class is alseo auto-generated at `app/database/migra
 
 3- Apply the migrations:
 
-_Will create a table called `notifications` to store generated OTP information._
+_It will create a table called `notifications` to store generated OTP information._
 
 ```
 $ php artisan migrate
