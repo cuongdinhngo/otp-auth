@@ -232,6 +232,8 @@ class SendOtp extends Notification
 
 ```
 
+**toTwilio**: This method is implemented by importing [delivery-channels](https://github.com/cuongnd88/delivery-channels).
+
 ### Verify OTP
 
 After sent OTP via your configed methods, you call `authByOtp` to authenticate
