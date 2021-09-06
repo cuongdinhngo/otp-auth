@@ -10,7 +10,7 @@ Route::get("/notify", function(){
 });
 
 Route::get("/auth-otp/{otp}", function(){
-    return App\Models\User::authByOtp(request()->otp, '84905279285');
+    return App\Models\User::authByOtp(request()->otp, '84905.......');
 });
 
 Route::get("/check-otp/{otp}", function(){
@@ -34,7 +34,7 @@ Route::get("/check-otp/{otp}", function(){
 1- Add the package to your dependencies.
 
 ```
-$ composer require cuongnd88/otp-auth
+$ composer require cuongdinhngo/otp-auth
 ```
 
 2- Run the command:
@@ -193,7 +193,7 @@ class SendOtp extends Notification
      */
     public function generateOtp($n)
     {
-        $generator = "0987654321";
+        $generator = "09xxxxxxx";
         $result = "";
 
         for ($i = 1; $i <= $n; $i++) {
@@ -223,7 +223,7 @@ class SendOtp extends Notification
 
 ```
 
-**toTwilio**: This method is implemented by importing [delivery-channels](https://github.com/cuongnd88/delivery-channels).
+**toTwilio**: This method is implemented by importing [delivery-channels](https://github.com/cuongdinhngo/delivery-channels).
 
 ### Verify OTP
 
@@ -351,7 +351,7 @@ Route::get("/check-otp/{otp}", function(){
 ### Demo
 
 This is demo soure code.
-[Laravel Colab](https://github.com/cuongnd88/lara-colab/blob/master/alpha/routes/web.php)
+[Laravel Colab](https://github.com/cuongdinhngo/lara-colab/blob/master/alpha/routes/web.php)
 
 ## Credits
 
